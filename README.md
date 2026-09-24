@@ -66,8 +66,7 @@ azure-python-ai/
 ├── app.py
 ├── main.py
 ├── README.md
-├── screenshots/
-│   └── Screenshot Azure AI Chatbot.png
+├── Screenshot Azure AI Chatbot.png
 ├── .gitignore
 └── .env
 ```

@@ -9,21 +9,20 @@ client = OpenAI(
     base_url = os.getenv("AZURE_OPENAI_ENDPOINT") + "/openai/v1/"
 )
 
-def ask_question(user_input):
+def ask_question(messages):
     response = client.chat.completions.create(
-    model = os.getenv("AZURE_OPENAI_DEPLOYMENT"),
-    messages = [
-        {
-            "role": "user", "content": user_input
-        }
-    ],
-)
+        model=os.getenv("AZURE_OPENAI_DEPLOYMENT"),
+        messages=messages,
+    )
+
     return response.choices[0].message.content
 
 def main():
-    user_input = input("Stel je vraag?")
-    answer = ask_question(user_input=user_input)
+    messages = [
+        {"role": "user", "content": "Wat is Python?"}
+    ]
+    answer = ask_question(messages)
     print(answer)
-    
+
 if __name__ == "__main__":
     main()
